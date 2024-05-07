@@ -6,28 +6,19 @@ const oai = new OpenAI({
   timeout: 5 * 60 * 1000,
 });
 
-const main = async () => {
-  const abortController = new AbortController();
-  const response = await oai.chat.completions.create(
-    {
-      messages: [
-        {
-          role: "user",
-          content: `Tell me a short story about an emperor named Kuzco.`,
-        },
-      ],
-      model: 'llama3:latest',
-      stream: false, // streaming is disabled in Kuzco for now
-    },
-    { signal: abortController.signal },
-  );
+try {
+  const response = await oai.chat.completions.create({
+    messages: [
+      {
+        role: "user",
+        content: `Tell me a short story about an emperor named Kuzco.`,
+      },
+    ],
+    model: "llama3:latest",
+    stream: false, // streaming is disabled in Kuzco for now
+  });
 
   console.log(response.choices[0].message.content);
-};
-
-
-try {
-  main();
 } catch (e) {
   console.error(e);
 }
