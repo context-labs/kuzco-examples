@@ -1,7 +1,7 @@
 import OpenAI from "openai";
 
 const oai = new OpenAI({
-  baseURL: "https://relay.kuzco.xyz/v1",
+  baseURL: "https://api.kuzco.xyz/v1",
   apiKey: `<YOUR_API_KEY>`, // obtainable from https://kuzco.xyz/register
   timeout: 5 * 60 * 1000,
 });
