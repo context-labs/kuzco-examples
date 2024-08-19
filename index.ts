@@ -14,7 +14,7 @@ try {
         content: `Tell me a short story about an emperor named Kuzco.`,
       },
     ],
-    model: "llama3:latest",
+    model: "llama3.1:latest",
     stream: false, // streaming is disabled in Kuzco for now
   });
 
